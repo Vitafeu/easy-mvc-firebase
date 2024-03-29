@@ -5,16 +5,20 @@
     "keywords": ["mvc", "framework", "php"],
     "homepage": "https://github.com/vitafeu/easy-mvc-firebase",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Vitafeu\\EasyMVC\\Firebase": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Benjamin Feurly",
             "email": "professional@vitafeu.com"
         }
     ],
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "Vitafeu\\EasyMVC\\Firebase\\": "src/"
+        }
+    },
+    "require": {
+        "kreait/firebase-php": "*",
+        "grpc/grpc": "^1.57",
+        "google/cloud-firestore": "^1.42"
+    }
 }
