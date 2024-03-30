@@ -29,4 +29,13 @@ class FirestoreModel
 
         return $data;
     }
+
+    public static function create($data) {
+        self::init();
+        
+        $calledClass = get_called_class();
+
+        $ref = self::$db->collection($calledClass::$collection);
+        $ref->add($data);
+    }
 }
