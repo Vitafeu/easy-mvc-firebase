@@ -38,4 +38,13 @@ class FirestoreModel
         $ref = self::$db->collection($calledClass::$collection);
         $ref->add($data);
     }
+
+    public static function delete($id) {
+        self::init();
+        
+        $calledClass = get_called_class();
+
+        $ref = self::$db->collection($calledClass::$collection);
+        $ref->document($id)->delete();
+    }
 }
