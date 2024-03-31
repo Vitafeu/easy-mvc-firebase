@@ -7,7 +7,7 @@ use Vitafeu\EasyMVC\Globals;
 
 class Firebase {
     public static function getInstance() {
-        $factory = (new Factory)->withServiceAccount(Globals::getProjectDir() . 'firebase-adminsdk.json');
+        $factory = (new Factory)->withServiceAccount(Globals::getProjectRoot() . 'firebase-adminsdk.json');
         return $factory;
     }
 }
