@@ -30,13 +30,18 @@ class FirestoreModel
         return $data;
     }
 
-    public static function create($data) {
+    public static function create($data, $uid = null) {
         self::init();
         
         $calledClass = get_called_class();
 
         $ref = self::$db->collection($calledClass::$collection);
-        $ref->add($data);
+
+        if ($uid) {
+            $ref->document($uid)->set($data);
+        } else {
+            $ref->add($data);
+        }
     }
 
     public static function update($id, $data) {
