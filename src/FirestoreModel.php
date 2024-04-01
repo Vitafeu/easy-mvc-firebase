@@ -14,13 +14,22 @@ class FirestoreModel
         }
     }
 
-    public static function read() {
+    public static function read($uid = null) {
         self::init();
         
         $calledClass = get_called_class();
 
         $ref = self::$db->collection($calledClass::$collection);
+
+        if ($uid) {
+            $doc = $ref->document($uid);
+            $snapshot = $doc->snapshot();
+
+            return array_merge($snapshot->data(), ['id' => $snapshot->id()]);
+        }
+        
         $docs = $ref->documents();
+
         $data = [];
 
         foreach ($docs as $doc) {
