@@ -6,7 +6,7 @@ use Vitafeu\EasyMVC\Firebase\Firebase;
 
 class FirestoreModel
 {
-    private static $db = null;
+    protected static $db = null;
 
     public static function init() {
         if (self::$db === null) {
